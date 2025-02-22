@@ -4,18 +4,28 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.videoviwer.core.data.Video
 import com.videoviwer.databinding.VideoItemLayoutBinding
 import com.videoviwer.domain.repository.OnItemClickListener
+import com.videoviwer.utils.VideoDiffCallback
 
 class VideoRecyclerAdapter(
-    private val videosList: List<Video>,
+    private val videosList: MutableList<Video>,
     private val listener: OnItemClickListener? = null
 ): RecyclerView.Adapter<VideoRecyclerAdapter.VideoViewHolder> (){
 
     class VideoViewHolder(val binding: VideoItemLayoutBinding):
         RecyclerView.ViewHolder(binding.root)
+
+    fun updateVideos(newVideos: List<Video>) {
+        val diffCallback = VideoDiffCallback(videosList, newVideos)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        videosList.clear()
+        videosList.addAll(newVideos)
+        diffResult.dispatchUpdatesTo(this)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
         val binding =

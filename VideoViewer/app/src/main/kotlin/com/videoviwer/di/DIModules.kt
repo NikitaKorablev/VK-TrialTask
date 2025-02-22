@@ -10,6 +10,7 @@ import com.videoviwer.domain.usecases.GetThumbnailUseCase
 import com.videoviwer.domain.usecases.GetTopPopularVideosUseCase
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module(
     includes = [ThumbnailModule::class, TopVideosModule::class, NetworkModule::class]

@@ -20,6 +20,11 @@ class VideosListViewModel: ViewModel() {
     private val _videosList = MutableLiveData<List<Video>>()
     val videosList: LiveData<List<Video>> get() = _videosList
 
+    fun refreshVideosList() {
+        _videosList.value = emptyList()
+        getTopVideos()
+    }
+
     fun getTopVideos() {
         viewModelScope.launch {
             val list = getTopPopularVideosUseCase.execute()
@@ -29,13 +34,12 @@ class VideosListViewModel: ViewModel() {
     }
 
     private fun updateVideoThumbnail(video: Video) {
-        addVideosList(video)
 
         viewModelScope.launch {
             val thumbnail = getThumbnailUseCase.execute(video.url)
             thumbnail?.let {
                 video.thumbnail = it
-                updateVideosList()
+                addVideosList(video)
             }
         }
     }
@@ -44,13 +48,5 @@ class VideosListViewModel: ViewModel() {
         val curList = _videosList.value?.toMutableList() ?: mutableListOf()
         curList.add(video)
         _videosList.value = curList
-    }
-
-    private fun updateVideosList() {
-        _videosList.value = _videosList.value?.toMutableList() ?: mutableListOf()
-    }
-
-    private fun refreshListener() {
-
     }
 }

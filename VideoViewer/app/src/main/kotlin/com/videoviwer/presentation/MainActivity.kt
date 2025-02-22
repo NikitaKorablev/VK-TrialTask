@@ -37,15 +37,18 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        initDI()
-        binding.swipeRefreshLayout
 
-        viewModel.videosList.observe(this) { videosList ->
-            adapter = VideoRecyclerAdapter(videosList.toMutableList(), this)
-            binding.recyclerView.adapter = adapter
-            binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        initDI()
+        initRecyclerView()
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.refreshVideosList()
         }
 
+        viewModel.videosList.observe(this) { videosList ->
+            adapter.updateVideos(videosList)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
         viewModel.getTopVideos()
     }
 
@@ -53,6 +56,12 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         val videoWatcherComponent =
             (applicationContext as VideoWatcherDepsProvider).getVideoWatcherComponent()
         videoWatcherComponent.inject(viewModel)
+    }
+
+    private fun initRecyclerView() {
+        adapter = VideoRecyclerAdapter(mutableListOf(), this)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onItemClick(video: Video) {
