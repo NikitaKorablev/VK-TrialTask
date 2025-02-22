@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".video.presentation.VideoActivity"
+            android:screenOrientation="unspecified"
             android:exported="false"/>
     </application>
 

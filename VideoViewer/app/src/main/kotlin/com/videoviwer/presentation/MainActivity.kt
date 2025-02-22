@@ -2,6 +2,7 @@ package com.videoviwer.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         }
 
         viewModel.videosList.observe(this) { videosList ->
+            Log.d("Observer", videosList.toString())
             adapter.updateVideos(videosList)
             binding.swipeRefreshLayout.isRefreshing = false
         }
