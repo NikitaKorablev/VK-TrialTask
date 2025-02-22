@@ -29,7 +29,17 @@ top_videos = [
         "name": "/𝐧𝐨 𝐬𝐭𝐚𝐫𝐬 | 80's Tokyo Funky Lofi Playlist 🎧 | Broadcasting Beyond | Relax & Chill & Study to",
         "duration": "1:50:24",
         "url": "https://rr4---sn-uxaxjvhxbt2u-j5pl6.googlevideo.com/videoplayback?expire=1740249743&ei=L8a5Z6C4MoP5xN8PvICSsQo&ip=197.37.216.187&id=o-AClmNC4B1Udyoi3VXiR02IkhRYcbImr3-YYCtSXzF25-&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&met=1740228143%2C&mh=QH&mm=31%2C29&mn=sn-uxaxjvhxbt2u-j5pl6%2Csn-4g5ednds&ms=au%2Crdu&mv=m&mvi=4&pl=18&rms=au%2Cau&initcwndbps=586250&bui=AUWDL3xLHklQDcagc389vXqnJwEoq7u5_q0a8MHlV1sz4T6sTIySxMGJr4TSPOaKbTPG_oHMoQR3cEeu&spc=RjZbSfasa3dd543zGPK1ZeGww1cTviTACri6xqasLhqd0iObk31JVdqsO84k1pI4SM-GXw&vprv=1&svpuc=1&mime=video%2Fmp4&ns=PFXHuNPHF9uz0csbb2Z7HzIQ&rqh=1&gir=yes&clen=194500354&ratebypass=yes&dur=6624.862&lmt=1738059599769498&mt=1740227592&fvip=4&fexp=51326932%2C51331020&c=MWEB&sefc=1&txp=5538534&n=-bFEzWjaTcOFZg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRQIhAJe7TQfU_cuHuh-bD-qNKrzhMYps-4ALuXLeGbKDRiacAiAoQ-676Rf0wQansxhjwK9PiDHg6yaPeCAjUHa1_I_mlw%3D%3D&lsparams=met%2Cmh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Crms%2Cinitcwndbps&lsig=AGluJ3MwRgIhAPpMrF7eP9tSM_P4dMT8WuKcfTJIV6Ud0uRrSGhCx6-7AiEAk72IQm0YP20IDtQLpjeJvOKmlyBJLlB6U9SKluKiTHk%3D&title=%2F%F0%9D%90%A7%F0%9D%90%A8%20%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AC%20%7C%2080%27s%20Tokyo%20Funky%20Lofi%20Playlist%20%F0%9F%8E%A7%20%7C%20Broadcasting%20Beyond%20%7C%20Relax%20%26%20Chill%20%26%20Study%20to",
-    }
+    },
+    {
+        "name": "Перепрошей свой мозг! 28 привычек, которые мешают тебе стать успешнее",
+        "duration": "31:10",
+        "url": "https://vv.sf-converter.com/get?payload=KDr0eaScP0kxPEG~018ivbYyf1qZvi3dhtn9M-6oNa4sw11wCQo27xYuP-Fp09B-A2K2KVVPB9YadvyOm~xVyF2166lKjgB0kk9EPLgjxaBAgSxc4SMgRiX08LCTIkommpIt8Olxs8CWXkOqzjBbl827CwmO7I0dFScsdg~sB6~jqpAdnPIGkH~tHXOOKrTV0ezZxh6Boi-dyUo81WpP8Ef6lgSKnvoUxi3kmSXmmsGGQT5~~mhMwfiP4F0v7WlzQjB~ZplSJshg9ulyQQ1r8hpZgD~Fm0H5-yFPiHAzH4TwX-hOhR99LavBSOAlrZyCpiO5JWZMuBB~ApEAr-4EZCzuLBEc-jVnGO5dgGAoJkeXCQp4OjBkIGJsqxuzj-s79CDVOrPUp-bcXc6EhltxNfCSGNFhesKZ9lxebNUu3bP49y7GohvLvRgQDWN~77X36AswnsSo1C2qUKiyd5iPYNmIiC3tJUithxoh~NMjQAitXc2H8Otyb1qy9JwdLVnsIhwOcQ-cc-zTC6EgsNuNNLy5Pmu1t95boWGaQNgszmedFlT5gQXfah26bH9RHJEULmOOU--YqRTvKG9yVTd3HYN2yiKbND6u26HDt8qxHB7hxTxidmmJt0xWCOaMOoxbcFynNlfcqf5N~n3cx799XdBWE1tLRCvQVb1H1uiBF8YuZ~13~2Bep3ZfmDofV82RnRgCblMbU0xVTS6fTH-gUbd7jpMvdxjw4jpTSIyG6TrT0a877NhMT~DY9pv7vw-1H-xGZgKaBMAt3C~6Bnx8-yIs6V4BVZpv4sm8pTcS7xh717gaIfMaABC7Frc~5uPI3uG7atFGWUrokjcY-69btcgZKqudMJIloeLc9SyBY4yd31dVqMZlREy9mTOQ3Tve0kqn3dKyvdl3AuxYsLQVMtpDv1Wgwl5g6jJqRj2hpL-DyeCgR3vIfY-NKZPEn7RN*0cf3474717a989dfdf3a9f246be746a3*2*1740252770",
+    },
+    {
+        "name": "LOFI Музыка: Идеальный трек для Отдыха и Работы",
+        "duration": "35:35",
+        "url": "https://vkvd408.okcdn.ru/?expires=1740486953289&srcIp=150.107.136.142&pr=40&srcAg=CHROME&ms=45.136.20.176&type=3&sig=ivkovG8AhFE&ct=0&urls=185.226.53.189&clientType=13&appId=512000384397&id=7307772496439",
+    },
 ]
 
 @app.route("/top_videos", methods=["GET"])
