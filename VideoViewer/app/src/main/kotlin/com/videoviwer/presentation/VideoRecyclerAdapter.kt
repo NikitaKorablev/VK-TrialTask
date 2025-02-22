@@ -5,8 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.videoviwer.core.data.BaseVideo
-import com.videoviwer.data.Video
+import com.videoviwer.core.data.Video
 import com.videoviwer.databinding.VideoItemLayoutBinding
 import com.videoviwer.domain.repository.OnItemClickListener
 

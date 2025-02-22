@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.videoviwer.core.data.BaseVideo
-import com.videoviwer.data.Video
+import com.videoviwer.core.data.Video
 import com.videoviwer.domain.usecases.GetThumbnailUseCase
 import com.videoviwer.domain.usecases.GetTopPopularVideosUseCase
 import kotlinx.coroutines.launch

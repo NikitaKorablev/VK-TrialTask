@@ -1,4 +1,4 @@
-package com.videoviwer.data
+package com.videoviwer.core.data
 
 import android.graphics.Bitmap
 

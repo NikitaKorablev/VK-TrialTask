@@ -16,7 +16,7 @@ import com.videoviwer.domain.repository.OnItemClickListener
 import com.videoviwer.presentation.viewmodel.VideosListViewModel
 import com.videoviwer.presentation.viewmodel.VideosListViewModelFactory
 import com.google.gson.Gson
-import com.videoviwer.data.Video
+import com.videoviwer.core.data.Video
 import com.videoviwer.video.presentation.VideoActivity
 
 class MainActivity : AppCompatActivity(), OnItemClickListener {

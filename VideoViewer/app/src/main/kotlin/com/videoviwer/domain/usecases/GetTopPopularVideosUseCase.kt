@@ -1,6 +1,6 @@
 package com.videoviwer.domain.usecases
 
-import com.videoviwer.data.Video
+import com.videoviwer.core.data.Video
 import com.videoviwer.domain.repository.TopPopularVideosRepositoryInterface
 
 class GetTopPopularVideosUseCase(
