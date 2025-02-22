@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
-    android:paddingVertical="10dp"
-    android:paddingHorizontal="20dp"
+    android:layout_marginTop="@dimen/base_indent"
+    android:paddingVertical="@dimen/base_indent"
+    android:paddingHorizontal="@dimen/double_base_indent"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:contentDescription="Video thumbnail"
+        android:contentDescription="@string/video_content_description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -20,17 +20,17 @@
         android:id="@+id/videoDuration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:layout_marginTop="5dp"
-        android:text="VideoDuration"
+        android:textSize="@dimen/text_size"
+        android:layout_marginTop="@dimen/half_base_indent"
+        android:text="@string/base_text"
         />
 
     <TextView
         android:id="@+id/videoName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="VideoName"
+        android:textSize="@dimen/title_size"
+        android:text="@string/base_title"
         android:maxLines="2"
         />
 

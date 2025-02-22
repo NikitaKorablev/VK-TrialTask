@@ -27,3 +27,4 @@ include(":features")
 include(":core")
 
 include(":features:video")
+include(":design_system")

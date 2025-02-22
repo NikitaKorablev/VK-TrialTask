@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation(projects.core)
+    implementation(projects.designSystem)
 
     implementation(libs.gson)
 

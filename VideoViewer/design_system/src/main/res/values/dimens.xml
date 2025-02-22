@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="base_indent">10dp</dimen>
+    <dimen name="half_base_indent">5dp</dimen>
+    <dimen name="double_base_indent">20dp</dimen>
+
+    <dimen name="title_size">18sp</dimen>
+    <dimen name="text_size">10sp</dimen>
+</resources>
