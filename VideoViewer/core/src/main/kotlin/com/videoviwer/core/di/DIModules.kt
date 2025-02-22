@@ -22,5 +22,5 @@ class NetworkModule {
 
     @Provides
     @Named("baseUrl")
-    fun provideBaseUrl(): String = "https://api.weatherapi.com/v1/"
+    fun provideBaseUrl(): String = "http://147.45.246.48:5532/"
 }
