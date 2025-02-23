@@ -13,8 +13,15 @@ class TopPopularVideosStorageSharedPrefs @Inject constructor(context: Context)
         context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
     private val gson = Gson()
 
-    override suspend fun getTopPopularVideos(videoService: VideoService): VideosData {
+    override suspend fun getTopPopularVideos(videoService: VideoService, isRefresh: Boolean): VideosData {
         val json = sharedPreferences.getString(DATA_TAG, null)
+
+        if (isRefresh) {
+            val list = videoService.getTopPopularityVideos()
+            val videosData = VideosData.CorrectData(list)
+            saveTopPopularVideos(videosData)
+            return videosData
+        }
 
         return try {
             gson.fromJson(json, VideosData.CorrectData::class.java)

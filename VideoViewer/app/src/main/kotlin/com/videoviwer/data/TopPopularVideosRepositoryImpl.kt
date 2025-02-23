@@ -8,7 +8,7 @@ class TopPopularVideosRepositoryImpl(
     private var videoService: VideoService,
     private var videosStorage: TopPopularVideosStorage
 ): TopPopularVideosRepositoryInterface {
-    override suspend fun getTopPopularVideos(): VideosData {
-        return videosStorage.getTopPopularVideos(videoService)
+    override suspend fun getTopPopularVideos(isRefresh: Boolean): VideosData {
+        return videosStorage.getTopPopularVideos(videoService, isRefresh)
     }
 }

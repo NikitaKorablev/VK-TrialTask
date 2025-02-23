@@ -24,12 +24,12 @@ class VideosListViewModel: ViewModel() {
 
     fun refreshVideosList() {
         _videosList.value = VideosData.CorrectData(emptyList())
-        getTopVideos()
+        getTopVideos(true)
     }
 
-    fun getTopVideos() {
+    fun getTopVideos(isRefresh: Boolean = false) {
         viewModelScope.launch {
-            when (val videosData = getTopPopularVideosUseCase.execute()) {
+            when (val videosData = getTopPopularVideosUseCase.execute(true)) {
                 is VideosData.CorrectData -> {
                     for (video in videosData.videosList)
                         updateVideoThumbnail(video)

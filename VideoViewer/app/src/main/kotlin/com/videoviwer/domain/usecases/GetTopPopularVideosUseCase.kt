@@ -6,7 +6,7 @@ import com.videoviwer.domain.repository.TopPopularVideosRepositoryInterface
 class GetTopPopularVideosUseCase(
     private val repository: TopPopularVideosRepositoryInterface
 ) {
-    suspend fun execute(): VideosData {
-        return repository.getTopPopularVideos()
+    suspend fun execute(isRefresh: Boolean = false): VideosData {
+        return repository.getTopPopularVideos(isRefresh)
     }
 }
