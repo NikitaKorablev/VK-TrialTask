@@ -6,6 +6,11 @@ app = Flask(__name__)
 
 top_videos = [
     {
+        "name": "Атмосфера летнего солнечного утра. В лучах солнца на рассвете поют птицы",
+        "duration": "1:00:37",
+        "url": "https://vkvd376.okcdn.ru/?srcIp=101.108.61.225&pr=40&expires=1740392778684&srcAg=CHROME&fromCache=1&ms=185.226.52.199&type=3&sig=7GVDughmIHs&ct=0&urls=45.136.21.206&clientType=13&appId=512000384397&zs=43&id=2717506210395",
+    },
+    {
         "name": "Christmas lofi сборник музыки для новогоднего уюта 🎄",
         "duration": "1:00:00",
         "url": "https://vkvd369.okcdn.ru/?expires=1740483433964&srcIp=186.2.226.83&pr=40&srcAg=CHROME&ms=185.226.53.204&type=3&sig=SWsuZfQ45y4&ct=0&urls=45.136.22.165&clientType=13&appId=512000384397&id=7510931147354",
