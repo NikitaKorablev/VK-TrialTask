@@ -1,6 +1,5 @@
 package com.videoviwer.domain.usecases
 
-import com.videoviwer.core.data.Video
 import com.videoviwer.core.data.VideosData
 import com.videoviwer.domain.repository.TopPopularVideosRepositoryInterface
 

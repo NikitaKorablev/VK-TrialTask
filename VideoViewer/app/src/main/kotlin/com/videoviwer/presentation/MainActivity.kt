@@ -3,6 +3,7 @@ package com.videoviwer.presentation
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ import com.videoviwer.presentation.viewmodel.VideosListViewModel
 import com.videoviwer.presentation.viewmodel.VideosListViewModelFactory
 import com.google.gson.Gson
 import com.videoviwer.core.data.Video
+import com.videoviwer.core.data.VideosData
 import com.videoviwer.video.presentation.VideoActivity
 
 class MainActivity : AppCompatActivity(), OnItemClickListener {
@@ -64,10 +66,17 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
     }
 
     private fun initVideosListObserver() {
-        viewModel.videosList.observe(this) { videosList ->
-            Log.d("Observer", videosList.toString())
-            adapter.updateVideos(videosList)
-            binding.swipeRefreshLayout.isRefreshing = false
+        viewModel.videosList.observe(this) { videosData ->
+            when (videosData) {
+                is VideosData.CorrectData -> {
+                    adapter.updateVideos(videosData.videosList)
+                    binding.swipeRefreshLayout.isRefreshing = false
+                }
+
+                is VideosData.InvalidData -> {
+                    Toast.makeText(this, videosData.message, Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 

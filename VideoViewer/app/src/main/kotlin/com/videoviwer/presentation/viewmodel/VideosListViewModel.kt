@@ -1,7 +1,6 @@
 package com.videoviwer.presentation.viewmodel
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,11 +19,11 @@ class VideosListViewModel: ViewModel() {
     @Inject
     lateinit var getTopPopularVideosUseCase: GetTopPopularVideosUseCase
 
-    private val _videosList = MutableLiveData<List<Video>>()
-    val videosList: LiveData<List<Video>> get() = _videosList
+    private val _videosList = MutableLiveData<VideosData>()
+    val videosList: LiveData<VideosData> get() = _videosList
 
     fun refreshVideosList() {
-        _videosList.value = emptyList()
+        _videosList.value = VideosData.CorrectData(emptyList())
         getTopVideos()
     }
 
@@ -49,7 +48,7 @@ class VideosListViewModel: ViewModel() {
             val thumbnail = getThumbnailUseCase.execute(video.url)
             thumbnail?.let {
                 video.thumbnail = it
-                addVideosList(video)
+                addToVideosList(video)
                 Log.d("GetThumbnail", "Thumbnail found: ${video.name}")
             } ?: run {
                 Log.e("GetThumbnail", "Thumbnail undefined: ${video.name}")
@@ -57,9 +56,12 @@ class VideosListViewModel: ViewModel() {
         }
     }
 
-    private fun addVideosList(video: Video) {
-        val curList = _videosList.value?.toMutableList() ?: mutableListOf()
+    private fun addToVideosList(video: Video) {
+        var curList = mutableListOf<Video>()
+        (_videosList.value as? VideosData.CorrectData)?.let { videosData ->
+            curList = videosData.videosList.toMutableList()
+        }
         curList.add(video)
-        _videosList.value = curList
+        _videosList.value = VideosData.CorrectData(curList)
     }
 }
