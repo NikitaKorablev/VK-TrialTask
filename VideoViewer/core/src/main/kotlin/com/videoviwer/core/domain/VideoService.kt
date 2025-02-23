@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface VideoService {
     @GET("top_videos")
-    suspend fun getTopPopularityVideo(): List<Video>
+    suspend fun getTopPopularityVideos(): List<Video>
 }

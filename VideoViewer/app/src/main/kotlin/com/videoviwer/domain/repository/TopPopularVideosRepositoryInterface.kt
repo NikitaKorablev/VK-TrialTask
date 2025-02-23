@@ -1,7 +1,7 @@
 package com.videoviwer.domain.repository
 
-import com.videoviwer.core.data.Video
+import com.videoviwer.core.data.VideosData
 
 interface TopPopularVideosRepositoryInterface {
-    suspend fun getTopPopularVideos(): List<Video>
+    suspend fun getTopPopularVideos(): VideosData
 }

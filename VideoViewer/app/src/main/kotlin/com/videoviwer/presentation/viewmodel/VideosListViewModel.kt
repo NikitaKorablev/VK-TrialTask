@@ -7,11 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.videoviwer.core.data.Video
+import com.videoviwer.core.data.VideosData
 import com.videoviwer.domain.usecases.GetThumbnailUseCase
 import com.videoviwer.domain.usecases.GetTopPopularVideosUseCase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,10 +30,17 @@ class VideosListViewModel: ViewModel() {
 
     fun getTopVideos() {
         viewModelScope.launch {
-            val list = getTopPopularVideosUseCase.execute()
-            Log.d("ViewModel", list.size.toString())
-            for (video in list)
-                updateVideoThumbnail(video)
+            when (val videosData = getTopPopularVideosUseCase.execute()) {
+                is VideosData.CorrectData -> {
+                    for (video in videosData.videosList)
+                        updateVideoThumbnail(video)
+                }
+
+                is VideosData.InvalidData -> {
+
+                }
+            }
+
         }
     }
 

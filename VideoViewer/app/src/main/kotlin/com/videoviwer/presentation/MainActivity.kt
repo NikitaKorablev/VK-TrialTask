@@ -41,18 +41,14 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
         initDI()
         initRecyclerView()
+        initVideosListObserver()
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.refreshVideosList()
         }
 
-        viewModel.videosList.observe(this) { videosList ->
-            Log.d("Observer", videosList.toString())
-            adapter.updateVideos(videosList)
-            binding.swipeRefreshLayout.isRefreshing = false
-        }
-
-        if (savedInstanceState == null) viewModel.getTopVideos()
+        if (savedInstanceState == null)
+            viewModel.getTopVideos()
     }
 
     private fun initDI() {
@@ -65,6 +61,14 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         adapter = VideoRecyclerAdapter(mutableListOf(), this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun initVideosListObserver() {
+        viewModel.videosList.observe(this) { videosList ->
+            Log.d("Observer", videosList.toString())
+            adapter.updateVideos(videosList)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     override fun onItemClick(video: Video) {
