@@ -51,7 +51,8 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             adapter.updateVideos(videosList)
             binding.swipeRefreshLayout.isRefreshing = false
         }
-        viewModel.getTopVideos()
+
+        if (savedInstanceState == null) viewModel.getTopVideos()
     }
 
     private fun initDI() {
