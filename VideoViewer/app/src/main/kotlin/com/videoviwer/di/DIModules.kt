@@ -7,13 +7,16 @@ import com.videoviwer.data.ThumbnailRepositoryImpl
 import com.videoviwer.data.TopPopularVideosRepositoryImpl
 import com.videoviwer.data.TopPopularVideosStorage
 import com.videoviwer.data.TopPopularVideosStorageSharedPrefs
+import com.videoviwer.data.VideosFromSharedPrefsRepositoryImpl
 import com.videoviwer.domain.repository.ThumbnailRepositoryInterface
 import com.videoviwer.domain.repository.TopPopularVideosRepositoryInterface
+import com.videoviwer.domain.repository.TopPopularVideosSharedPrefsRepositoryInterface
 import com.videoviwer.domain.usecases.GetThumbnailUseCase
 import com.videoviwer.domain.usecases.GetTopPopularVideosUseCase
+import com.videoviwer.domain.usecases.GetVideosFromSharedPrefsUseCase
+import com.videoviwer.domain.usecases.SaveVideosToSharedPrefsUseCase
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module(
     includes = [ThumbnailModule::class, TopVideosModule::class, NetworkModule::class]
@@ -39,10 +42,16 @@ class ThumbnailModule {
 class TopVideosModule {
     @Provides
     fun provideTopPopularVideosRepository(
-        videoService: VideoService,
-        videosStorage: TopPopularVideosStorage
+        videoService: VideoService
     ): TopPopularVideosRepositoryInterface {
-        return TopPopularVideosRepositoryImpl(videoService, videosStorage)
+        return TopPopularVideosRepositoryImpl(videoService)
+    }
+
+    @Provides
+    fun providesVideosFromSharedPrefsRepository(
+        videosStorage: TopPopularVideosStorage
+    ): TopPopularVideosSharedPrefsRepositoryInterface {
+        return VideosFromSharedPrefsRepositoryImpl(videosStorage)
     }
 
     @Provides
@@ -56,5 +65,19 @@ class TopVideosModule {
         repository: TopPopularVideosRepositoryInterface
     ): GetTopPopularVideosUseCase {
         return GetTopPopularVideosUseCase(repository)
+    }
+
+    @Provides
+    fun provideGetVideosFromSharedPrefsUseCase(
+        repository: TopPopularVideosSharedPrefsRepositoryInterface
+    ): GetVideosFromSharedPrefsUseCase {
+        return GetVideosFromSharedPrefsUseCase(repository)
+    }
+
+    @Provides
+    fun provideSaveVideosFromSharedPrefsUseCase(
+        repository: TopPopularVideosSharedPrefsRepositoryInterface
+    ): SaveVideosToSharedPrefsUseCase {
+        return SaveVideosToSharedPrefsUseCase(repository)
     }
 }

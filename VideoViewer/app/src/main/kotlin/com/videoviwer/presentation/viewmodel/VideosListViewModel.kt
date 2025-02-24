@@ -9,6 +9,9 @@ import com.videoviwer.core.data.Video
 import com.videoviwer.core.data.VideosData
 import com.videoviwer.domain.usecases.GetThumbnailUseCase
 import com.videoviwer.domain.usecases.GetTopPopularVideosUseCase
+import com.videoviwer.domain.usecases.GetVideosFromSharedPrefsUseCase
+import com.videoviwer.domain.usecases.SaveVideosToSharedPrefsUseCase
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,32 +22,56 @@ class VideosListViewModel: ViewModel() {
     @Inject
     lateinit var getTopPopularVideosUseCase: GetTopPopularVideosUseCase
 
+    @Inject
+    lateinit var getVideosFromSharedPrefsUseCase: GetVideosFromSharedPrefsUseCase
+
+    @Inject
+    lateinit var saveVideosToSharedPrefsUseCase: SaveVideosToSharedPrefsUseCase
+
     private val _videosList = MutableLiveData<VideosData>()
     val videosList: LiveData<VideosData> get() = _videosList
 
+    private var job: Job? = null
+
     fun refreshVideosList() {
         _videosList.value = VideosData.CorrectData(emptyList())
-        getTopVideos(true)
+        job?.cancel()
+        job = getNewTopVideos()
     }
 
-    fun getTopVideos(isRefresh: Boolean = false) {
-        viewModelScope.launch {
-            when (val videosData = getTopPopularVideosUseCase.execute(true)) {
+    fun getTopVideos() {
+        when (val sharedPrefsVideos = getVideosFromSharedPrefsUseCase.execute()) {
+            is VideosData.CorrectData -> {
+                for (video in sharedPrefsVideos.videosList)
+                    updateVideoThumbnail(video)
+            }
+
+            is VideosData.InvalidData -> {
+                job?.cancel()
+                job = getNewTopVideos()
+            }
+        }
+    }
+
+    private fun getNewTopVideos(): Job {
+        return viewModelScope.launch {
+            when (val videosData = getTopPopularVideosUseCase.execute()) {
                 is VideosData.CorrectData -> {
+                    saveVideosToSharedPrefsUseCase.execute(videosData)
+
                     for (video in videosData.videosList)
                         updateVideoThumbnail(video)
                 }
 
                 is VideosData.InvalidData -> {
-
+                    Log.e(TAG, videosData.message)
                 }
             }
-
         }
     }
 
-    private fun updateVideoThumbnail(video: Video) {
-        viewModelScope.launch {
+    private fun updateVideoThumbnail(video: Video): Job {
+        return viewModelScope.launch {
             val thumbnail = getThumbnailUseCase.execute(video.url)
             thumbnail?.let {
                 video.thumbnail = it
@@ -63,5 +90,9 @@ class VideosListViewModel: ViewModel() {
         }
         curList.add(video)
         _videosList.value = VideosData.CorrectData(curList)
+    }
+
+    companion object {
+        const val TAG = "VideosListViewModel"
     }
 }
