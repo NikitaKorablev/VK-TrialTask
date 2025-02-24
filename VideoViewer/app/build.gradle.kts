@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.gson)
 
     implementation("com.google.dagger:dagger:2.51.1")
+    implementation(libs.androidx.junit.ktx)
     kapt("com.google.dagger:dagger-compiler:2.51.1")
 
     implementation(libs.androidx.swiperefreshlayout)
@@ -57,7 +58,25 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+//    testImplementation(libs.junit)
+//    testImplementation("org.mockito:mockito-inline:4.0.0")
+//    testImplementation("org.mockito:mockito-core:3.12.4")
+//    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation("io.mockk:mockk:1.13.3")
+//    testImplementation("org.robolectric:robolectric:4.9")
+    testImplementation("androidx.test.ext:junit:1.2.1")
+    // AndroidX Test Extensions and Rules
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+
+    // Coroutines Test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    // AndroidX Arch Core Testing
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
+    implementation("net.bytebuddy:byte-buddy:1.14.12")
+
 }
